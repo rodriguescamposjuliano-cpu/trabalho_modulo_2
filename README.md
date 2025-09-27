@@ -44,3 +44,35 @@ O projeto permite:
 
 ```bash
 brew install python@3.11
+
+## 🗂 Estrutura do Projeto
+
+```plaintext
+trabalho_modulo_2/
+│
+├── data/                   
+│   ├── raw/                # datasets originais (não alterar)
+│   ├── processados/        # dados limpos e prontos para modelagem
+│   └── resultados/         # previsões geradas
+│
+├── scripts/                
+│   ├── processamento/      
+│   │   ├── carga_informacoes_usinas_eolicas.py
+│   │   └── carga_informacoes_usinas_solares.py
+│   ├── modelos/            
+│   │   ├── modelos_regressao.py
+│   │   ├── processador_regressao_eolica.py
+│   │   ├── processador_regressao_solar.py
+│   │   └── processador_regressao.py
+│   ├── visualizacao/      
+│   │   └── gerar_graficos.py
+│   └── integration/        
+│       └── conexao_snow_flake.py
+│
+├── utils/                  
+│   └── io_ugerador_arquivostils.py
+│
+├── requirements.txt        
+├── variaveis.env           # variáveis de ambiente (não subir pro git)
+├── .gitignore
+└── README.md               
