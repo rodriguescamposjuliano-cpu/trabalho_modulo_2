@@ -2,7 +2,6 @@
 
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](README.md)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 Este projeto tem como objetivo processar dados de usinas solares e eólicas, aplicar modelos de regressão (XGBoost e Random Forest) e gerar previsões de geração de energia.
 
