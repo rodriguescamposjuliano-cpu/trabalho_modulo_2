@@ -40,21 +40,21 @@ O projeto permite:
 
 ## ⚙️ Instalação
 
-    ### 1. Instale o Python 3.11
+    1. Instale o Python 3.11
 
         brew install python@3.11
 
-    ### 2. Crie o ambiente virtual
+    2. Crie o ambiente virtual
 
         python3.11 -m venv venv
 
-    ### 3. Ative o ambiente virtual
+    3. Ative o ambiente virtual
 
         Mac/Linux: source venv/bin/activate
         Windows (PowerShell): .\venv\Scripts\Activate.ps1
         Windows (CMD): .\venv\Scripts\activate.bat
 
-    ### 4. Instale as dependências
+    4. Instale as dependências
 
         pip install -r requirements.txt
 
