@@ -3,23 +3,27 @@
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](README.md)
 
-Este projeto tem como objetivo processar dados de usinas solares e eólicas, aplicar modelos de regressão (XGBoost e Random Forest) e gerar previsões de geração de energia.
+Este projeto tem como objetivo processar dados de usinas solares e eólicas de estados fora de Goiás, aplicar modelos de regressão (XGBoost e Random Forest) e gerar insights estratégicos, incluindo:
+
+- **Zoneamento Energético:** Identificar quais microrregiões de Goiás apresentam maior potencial para diferentes tipos de energia renovável.  
+- **Sazonalidade Estratégica:** Apoiar a formulação de políticas que promovam a complementaridade energética ao longo do ano.  
+- **Sinergia Hidro-Solar:** Otimizar a integração entre a geração hidrelétrica existente e o potencial solar e eólico do estado.  
+- **Capacidade de Escoamento:** Avaliar como a infraestrutura atual de transmissão influencia o aproveitamento do potencial renovável.
 
 ---
 
 ## 📖 Índice
 
-- [Descrição](#descrição)
+- [Descricao](#descricao)
 - [Requisitos](#requisitos)
-- [Instalação](#instalação)
+- [Instalacao](#instalacao)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Como Rodar](#como-rodar)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Contribuicao](#contribuicao)
 
 ---
 
-## 🔍 Descrição
+## 🔍 Descricao
 
 O projeto permite:
 
@@ -38,7 +42,7 @@ O projeto permite:
 
 ---
 
-## ⚙️ Instalação
+## ⚙️ Instalacao
 
     1. Instale o Python 3.11
 
