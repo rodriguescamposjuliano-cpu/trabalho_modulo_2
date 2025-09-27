@@ -1,14 +1,14 @@
 import pandas as pd
-from regressao.processador_regressao import ProcessadorDeRegressao
-from regressao.modelos_regressao import ModelosEnum
+from scripts.modelos.processador_regressao import ProcessadorDeRegressao
+from scripts.modelos.modelos_regressao import ModelosEnum
 
 class ProcessadorRegressaoUsinaEolica(ProcessadorDeRegressao):
 
     def __init__(self):
        # --- Dados para treino ---
-        df_usinas = pd.read_csv("dados_tratados/dados_treino_usinas_eolicas.csv")
+        df_usinas = pd.read_csv("data/processados/dados_treino_usinas_eolicas.csv")
         # --- Dados de Goiás ---
-        df_goias = pd.read_csv("dados_tratados/potencial_energia_eolica_goias.csv")
+        df_goias = pd.read_csv("data/processados/potencial_energia_eolica_goias.csv")
         
         # cria instância do objeto
         super().__init__(modelo_enum=ModelosEnum.XGBOOST,

@@ -5,8 +5,8 @@ from shapely.geometry import shape, MultiPolygon, Polygon
 import pandas as pd
 from datetime import datetime
 from datetime import timezone
-from infra.conexao_snow_flake import Conexao
-from infra.gerador_arquivos import GeradorDeArquivos
+from scripts.integracao.conexao_snow_flake import Conexao
+from utils.gerador_arquivos import GeradorDeArquivos
 
 class ProcessadorDadosUsinasEolicas:
 

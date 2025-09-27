@@ -4,9 +4,10 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import pandas as pd
 import numpy as np
-from .modelos_regressao import ModelosEnum
+from scripts.modelos.modelos_regressao import ModelosEnum
 from sklearn.linear_model import LinearRegression
-from infra.gerador_arquivos import GeradorDeArquivos
+from utils.gerador_arquivos import GeradorDeArquivos
+
 import os
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
@@ -56,7 +57,7 @@ class ProcessadorDeRegressao:
         self.df_dados_predicao[self.previsao] = y_pred
 
         # Salva resultados
-        caminho_csv = os.path.join("resultados", self.nomeArquivo)
+        caminho_csv = os.path.join("data/resultados", self.nomeArquivo)
         self.df_dados_predicao.to_csv(caminho_csv, index=False)
 
         print(f"Arquivo gerado: {self.nomeArquivo}")

@@ -1,8 +1,9 @@
 from dotenv import load_dotenv
-from scripts.ingestao.carga_informacoes_usinas_eolicas import ProcessadorDadosUsinasEolicas
-from scripts.ingestao.carga_informacoes_usinas_solares import ProcessadorDadosUsinasSolares
+from scripts.processamento.carga_informacoes_usinas_eolicas import ProcessadorDadosUsinasEolicas
+from scripts.processamento.carga_informacoes_usinas_solares import ProcessadorDadosUsinasSolares
 from scripts.modelos.processador_regressao_eolica import ProcessadorRegressaoUsinaEolica
 from scripts.modelos.processador_regressao_solar import ProcessadorRegressaoUsinaSolar
+
 import pandas as pd
 #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
 def main():
@@ -17,12 +18,14 @@ def main():
     #fator_capacidade
 
     #Regressão usina eólica
-    proc = ProcessadorRegressaoUsinaEolica()
-    proc.processe_regressao()
+    #proc = ProcessadorRegressaoUsinaEolica()
+    #proc.processe_regressao()
 
     #Regressão usina solar
-    # proc = ProcessadorRegressaoUsinaSolar()
-    # proc.processe_regressao()
+    proc = ProcessadorRegressaoUsinaSolar()
+    proc.processe_regressao()
+
+
     # df_usinas = pd.read_csv("dados_tratados/dados_treino_usinas_eolicas.csv")
     # df_usinas["din_instante"] = pd.to_datetime(df_usinas["din_instante"])
 
