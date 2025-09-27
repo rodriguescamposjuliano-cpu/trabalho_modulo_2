@@ -35,8 +35,6 @@ trabalho_modulo_2/
 │   ├── plot_utils.py       # funções para gráficos
 │   ├── model_utils.py      # funções de treino/avaliação
 │
-├── tests/                  # testes automatizados (pytest/unittest)
-│
 ├── requirements.txt        # dependências do projeto
 ├── variaveis.env           # variáveis de ambiente (não subir pro git)
 ├── .gitignore
