@@ -1,4 +1,4 @@
-# 🌞 Trabalho Módulo 2 - Previsão de Geração de Usinas
+# 🌞 Trabalho Módulo 2 - Análise e Previsão de Geração de Energia Solar e Eólica em Goiás
 
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](README.md)
@@ -19,11 +19,10 @@ Este projeto tem como objetivo processar dados de usinas solares e eólicas de e
 - [Instalacao](#instalacao)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Como Rodar](#como-rodar)
-- [Contribuicao](#contribuicao)
 
 ---
 
-## 🔍 Descricao
+## Descricao
 
 O projeto permite:
 
@@ -35,14 +34,14 @@ O projeto permite:
 
 ---
 
-## 🛠 Requisitos
+## Requisitos
 
 - Python 3.11  
 - Dependências listadas em `requirements.txt`
 
 ---
 
-## ⚙️ Instalacao
+## Instalacao
 
     1. Instale o Python 3.11
 
@@ -63,13 +62,13 @@ O projeto permite:
         pip install -r requirements.txt
 
 
-## 🗂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```plaintext
 trabalho_modulo_2/
 │
 ├── data/                   
-│   ├── raw/                # datasets originais (não alterar)
+│   ├── raw/                # datasets originais
 │   ├── processados/        # dados limpos e prontos para modelagem
 │   └── resultados/         # previsões geradas
 │
@@ -91,6 +90,6 @@ trabalho_modulo_2/
 │   └── io_ugerador_arquivostils.py
 │
 ├── requirements.txt        
-├── variaveis.env           # variáveis de ambiente (não subir pro git)
+├── variaveis.env           # variáveis de ambiente para conectar no snowflake
 ├── .gitignore
 └── README.md               
