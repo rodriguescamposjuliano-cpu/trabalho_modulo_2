@@ -1,4 +1,4 @@
-# 🌞 Trabalho Módulo 2 - Análise e Previsão de Geração de Energia Solar e Eólica em Goiás
+# Trabalho Módulo 2 - Análise e Previsão de Geração de Energia Solar e Eólica em Goiás
 
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](README.md)
@@ -12,7 +12,7 @@ Este projeto tem como objetivo processar dados de usinas solares e eólicas de e
 
 ---
 
-## 📖 Índice
+## Índice
 
 - [Descricao](#descricao)
 - [Requisitos](#requisitos)
