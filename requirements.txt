@@ -1,0 +1,11 @@
+numpy 
+pandas 
+scikit-learn 
+matplotlib
+dotenv
+requests
+geopandas
+shapely
+snowflake-connector-python
+xgboost
+seaborn
