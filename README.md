@@ -4,7 +4,7 @@
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](README.md)
 
 Este projeto tem como objetivo analisar e prever a geração de energia solar e eólica no estado de Goiás, utilizando o modelo de regressão baseado em aprendizado de máquina (XGBoost).
-Os dados são obtidos a partir de fontes públicas ONS.
+Os dados são obtidos a partir de fontes públicas (ONS).
 
 Objetivos Principais
 
