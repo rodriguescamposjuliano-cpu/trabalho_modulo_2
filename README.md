@@ -40,7 +40,7 @@ O projeto realiza as seguintes etapas:
    - Aplicação de XGBoost Regressor para prever geração energética;
    - Avaliação de métricas (MAE, RMSE, R²).
 7. Visualização e Insights:
-   - Grafico da curvo de erro;
+   - Grafico da curva de erro;
    - Gráfico de comparação real vs previsto.
      
 ## Arquitetura
