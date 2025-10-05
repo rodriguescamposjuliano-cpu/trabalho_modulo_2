@@ -3,7 +3,10 @@
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](README.md)
 
-Este projeto tem como objetivo processar dados de usinas solares e eólicas de estados fora de Goiás, aplicar modelos de regressão (XGBoost e Random Forest) e gerar insights estratégicos, incluindo:
+Este projeto tem como objetivo analisar e prever a geração de energia solar e eólica no estado de Goiás, utilizando o modelo de regressão baseado em aprendizado de máquina (XGBoost).
+Os dados são obtidos a partir de fontes públicas ONS.
+
+Objetivos Principais
 
 - **Zoneamento Energético:** Identificar quais microrregiões de Goiás apresentam maior potencial para diferentes tipos de energia renovável.  
 - **Sazonalidade Estratégica:** Apoiar a formulação de políticas que promovam a complementaridade energética ao longo do ano.  
@@ -15,6 +18,7 @@ Este projeto tem como objetivo processar dados de usinas solares e eólicas de e
 ## Índice
 
 - [Descricao](#descricao)
+- [Arquitetura](#arquitetura)
 - [Requisitos](#requisitos)
 - [Instalacao](#instalacao)
 - [Estrutura do Projeto](#estrutura-do-projeto)
@@ -24,15 +28,65 @@ Este projeto tem como objetivo processar dados de usinas solares e eólicas de e
 
 ## Descricao
 
-O projeto permite:
+O projeto realiza as seguintes etapas:
 
-- Extrair dados do Snowflake
-- Limpar e preparar datasets
-- Aplicar modelos de regressão (XGBoost e Random Forest)
-- Gerar previsões de geração de energia
-- Visualizar resultados em gráficos
+1. Extração de Dados:
+   - Leitura de informações meteorológicas históricas via API Open-Meteo;
+   - Integração com base de dados do Snowflake, para informações de usinas e produção real;
+   - Leitura de dados geográficos via GeoJSON público.
+3. Transformação e Limpeza:
+   - Enriquecimento dos datasets com dados climáticos e de localização.
+5. Modelagem Preditiva:
+   - Aplicação de XGBoost Regressor para prever geração energética;
+   - Avaliação de métricas (MAE, RMSE, R²).
+7. Visualização e Insights:
+   - Grafico da curvo de erro;
+   - Gráfico de comparação real vs previsto.
+     
+## Arquitetura
 
----
+```plaintext
++---------------------------+
+|       Dados da ONS        |
++------------+--------------+
+             |
+             v 
++---------------------------+
+|       Aribyte             |   
++------------+--------------+
+             |
+             v 
++---------------------------+
+|       Snowflake           |        
++------------+--------------+
+             |
+             v 
++---------------------------+
+| Processamento de Dados    |
+| (scripts/processamento)   |
++------------+--------------+
+             |
+             v
++---------------------------+
+| Modelagem e Treinamento   |
+| (scripts/modelos)         |
++------------+--------------+
+             |
+             v
++---------------------------+
+| Visualização e Arquivos   |
+| (scripts/visualizacao)    |
++---------------------------+
+```
+## Fone de Dados
+
+```plaintext
+| Fonte                                                                                              | Descrição                                                                           | Tipo           |
+| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------------- |
+| [Open-Meteo API](https://archive-api.open-meteo.com/)                                              | Dados meteorológicos históricos (radiação solar, velocidade do vento, temperatura). | API            |
+| [GeoData-BR](https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-52-mun.json) | Limites geográficos dos municípios de Goiás.                                        | GeoJSON        |
+| Snowflake                                                                                          | Dados de geração e cadastro das usinas.                                             | Data Warehouse |
+```
 
 ## Requisitos
 
@@ -60,6 +114,17 @@ O projeto permite:
     4. Instale as dependências
 
         pip install -r requirements.txt
+        
+    5. Configure o acesso ao Snowflake
+        Caso o acesso do SnowFlake tenha expirado, edite o arquivo variaveis.env com suas credenciais:
+        
+        SNOWFLAKE_USER=<usuario>
+        SNOWFLAKE_PASSWORD=<senha>
+        SNOWFLAKE_ACCOUNT=<conta>
+        SNOWFLAKE_WAREHOUSE=<warehouse>
+        SNOWFLAKE_DATABASE=<database>
+        SNOWFLAKE_SCHEMA=<schema>
+
 
 
 ## Estrutura do Projeto
@@ -68,28 +133,46 @@ O projeto permite:
 trabalho_modulo_2/
 │
 ├── data/                   
-│   ├── raw/                # datasets originais
-│   ├── processados/        # dados limpos e prontos para modelagem
-│   └── resultados/         # previsões geradas
+│   ├── processados/        # Dados limpos e prontos para modelagem
+│   └── resultados/Arquivos # Previsões geradas para o estado de Goiás
+│   └── resultados/Graficos # Gráficos da curva de erro e real vs previsto.
 │
-├── scripts/                
-│   ├── processamento/      
-│   │   ├── carga_informacoes_usinas_eolicas.py
-│   │   └── carga_informacoes_usinas_solares.py
+├── scripts/
+│   └── integracao/        
+│   |   └── conexao_snow_flake.py
 │   ├── modelos/            
-│   │   ├── modelos_regressao.py
-│   │   ├── processador_regressao_eolica.py
-│   │   ├── processador_regressao_solar.py
-│   │   └── processador_regressao.py
+│   │   ├── modelos_regressao.py            #Classe responsável por definir os possíveis modelos
+│   │   ├── processador_regressao_eolica.py #Classe responsável por carregar os dados das usinas eólicas
+│   │   ├── processador_regressao_solar.py  #Classe responsável por carregar os dados das usinas solares 
+│   │   └── processador_regressao.py        #Classe genérica por realizar do processamento da regressão
+│   │   └── tipos_de_usinas.py              #Tipo de usinas (eólica e solar)
+│   ├── processamento/      
+│   │   ├── carga_informacoes_usinas_eolicas.py #Classe responsável por preparar as informações das usinas eólicas
+│   │   └── carga_informacoes_usinas_solares.py #Classe responsável por preparar as informações das usinas solares
 │   ├── visualizacao/      
-│   │   └── gerar_graficos.py
-│   └── integration/        
-│       └── conexao_snow_flake.py
+│         └── gerenciador_graficos.py #Centraliza a geração dos gráficos
 │
 ├── utils/                  
-│   └── io_ugerador_arquivostils.py
+│   └── gerenciador_arquivos.py #Centraliza a criação dos arquivos
 │
-├── requirements.txt        
-├── variaveis.env           # variáveis de ambiente para conectar no snowflake
 ├── .gitignore
-└── README.md               
+├── main.py
+├── README.md
+├── requirements.txt        
+└── variaveis.env           # variáveis de ambiente para conectar no snowflake
+```
+## Como Rodar
+
+1. Treine e gere predições para usinas eólicas
+   ```plaintext
+   python main.py reg-eolica
+   ```
+3. Treine e gere predições para usinas solares
+   ```plaintext
+   python main.py reg-solar
+   ```
+ 
+
+
+
+
