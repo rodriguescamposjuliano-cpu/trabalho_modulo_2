@@ -18,7 +18,8 @@ Objetivos Principais
 ## Índice
 
 - [Descricao](#descricao)
-- [Arquitetura](#arquitetura)
+- [Sequencia do processamento](#sequencia-do-processamento)
+- [Fonte de Dados](#fonte-de-dados)
 - [Requisitos](#requisitos)
 - [Instalacao](#instalacao)
 - [Estrutura do Projeto](#estrutura-do-projeto)
@@ -44,7 +45,7 @@ O projeto realiza as seguintes etapas:
    - Grafico da curva de erro;
    - Gráfico de comparação real vs previsto.
      
-## Arquitetura
+## Sequencia do processamento
 
 ```plaintext
 +---------------------------+
@@ -84,7 +85,10 @@ O projeto realiza as seguintes etapas:
 ```plaintext
 | Fonte                                                                                              | Descrição                                                                           | Tipo           |
 | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------------- |
-| [Dados abertos ONS](https://dados.ons.org.br)                                                      | Datasets dos anos de 2024 e até setembro de 2025                                    | XLSX           |
+| https://dados.ons.org.br/dataset/fator-capacidade-2                                                | Datasets dos anos de 2024 e até setembro de 2025                                    | XLSX           |
+| https://dados.ons.org.br/dataset/subestacao                                                        | Subestação da Rede de Operação                                                      | XLSX           |
+| https://dados.ons.org.br/dataset/linha-transmissao                                                 | Linhas de Transmissão da Rede de Operação                                           | XLSX           |
+| https://dados.ons.org.br/dataset/geracao-usina-2                                                   | Geração por Usina em Base Horária                                                   | XLSX           |
 | [Open-Meteo API](https://archive-api.open-meteo.com/)                                              | Dados meteorológicos históricos (radiação solar, velocidade do vento, temperatura). | API            |
 | [GeoData-BR](https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-52-mun.json) | Limites geográficos dos municípios de Goiás.                                        | GeoJSON        |
 | Snowflake                                                                                          | Dados de geração e cadastro das usinas.                                             | Data Warehouse |
