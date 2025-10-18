@@ -23,6 +23,7 @@ Objetivos Principais
 - [Instalacao](#instalacao)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Como Rodar](#como-rodar)
+- [Visualizacao](#visualizacao)
 
 ---
 
@@ -179,6 +180,11 @@ trabalho_modulo_2/
    ```plaintext
    python main.py reg-solar
    ```
+
+## Visualizacao
+http://aws21.ddns.net/
+
+
  
 
 
