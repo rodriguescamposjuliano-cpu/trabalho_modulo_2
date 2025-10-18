@@ -83,9 +83,11 @@ O projeto realiza as seguintes etapas:
 ```plaintext
 | Fonte                                                                                              | Descrição                                                                           | Tipo           |
 | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------------- |
+| [Dados abertos ONS](https://dados.ons.org.br)                                                      | Datasets dos anos de 2024 e até setembro de 2025                                    | XLSX           |
 | [Open-Meteo API](https://archive-api.open-meteo.com/)                                              | Dados meteorológicos históricos (radiação solar, velocidade do vento, temperatura). | API            |
 | [GeoData-BR](https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-52-mun.json) | Limites geográficos dos municípios de Goiás.                                        | GeoJSON        |
 | Snowflake                                                                                          | Dados de geração e cadastro das usinas.                                             | Data Warehouse |
+
 ```
 
 ## Requisitos
