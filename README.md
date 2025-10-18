@@ -118,7 +118,13 @@ O projeto realiza as seguintes etapas:
         pip install -r requirements.txt
         
     5. Configure o acesso ao Snowflake
-        Caso o acesso do SnowFlake tenha expirado, edite o arquivo variaveis.env com suas credenciais:
+        Neste projeto, utilizamos a versão trial do Snowflake. Para possibilitar a execução do nosso algoritmo mesmo sem acesso ativo ao Snowflake, criamos arquivos .csv contendo os dados já preparados.
+        As classes carga_informacoes_usinas_eolicas.py e carga_informacoes_usinas_solares.py são responsáveis por:
+         5.1 Conectar-se ao Snowflake,
+         5.2 Buscar os dados, e
+         5.3 Prepará-los para o processamento pelo algoritmo.
+         
+        Caso o acesso do SnowFlake tenha expirado, edite o arquivo variaveis.env e informe as novas credenciais:
         
         SNOWFLAKE_USER=<usuario>
         SNOWFLAKE_PASSWORD=<senha>
