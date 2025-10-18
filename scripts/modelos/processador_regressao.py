@@ -144,6 +144,8 @@ class ProcessadorDeRegressao:
             X, y, test_size=0.2, random_state=42
         )
 
+        self.realize_validacao_cruzada_kfold(X=X, y=y, k_fold=5)
+
         # --- Etapa 4: treinamento ---
         if self.enumModelo == ModelosEnum.XGBOOST:
             # Treino com monitoramento (validação cruzada interna)
@@ -205,7 +207,7 @@ class ProcessadorDeRegressao:
         print(f"Arquivo gerado: {caminho_csv}")
 
     # ==========================================================
-    # VALIDAÇÃO CRUZADA (OPCIONAL)
+    # VALIDAÇÃO CRUZADA (K-Fold)
     # ==========================================================
     def realize_validacao_cruzada_kfold(self, X, y, k_fold=5):
         """
