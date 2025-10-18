@@ -78,7 +78,7 @@ O projeto realiza as seguintes etapas:
 | (scripts/visualizacao)    |
 +---------------------------+
 ```
-## Fone de Dados
+## Fonte de Dados
 
 ```plaintext
 | Fonte                                                                                              | Descrição                                                                           | Tipo           |
